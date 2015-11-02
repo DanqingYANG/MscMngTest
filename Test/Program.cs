@@ -21,9 +21,10 @@ namespace Test
             List<string> b = new List<string>();
             b = folder.setFileType("jpg, png, , ,txt, mp3, cue, ape");
             folder.getFileNames(@"F:\music\Bach\Bach.-.[Goldberg.Variations(Walcha.EMI.Angle)].专辑.(Flac)",b);
-
+            
 
             Tools.MusicFiles playlist = new MusicFiles();
+            playlist.getFiles(@"F:\music\Mozart-Requiem-Bernstein (APE)");
             playlist.test();
 
         }

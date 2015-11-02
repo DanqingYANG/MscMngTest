@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,36 @@ namespace MscMngTest2
         public SubWindow1()
         {
             InitializeComponent();
+            ListDirectory(SubWindowTree1, @"F:\music");
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void ListDirectory(TreeView treeView, string path)
+        {
+            treeView.Items.Clear();
+            var rootDirectoryInfo = new DirectoryInfo(path);
+            treeView.Items.Add(CreateDirectoryNode(rootDirectoryInfo));
+        }
+
+        private  TreeViewItem CreateDirectoryNode(DirectoryInfo directoryInfo)
+        {
+            //TreeView with file system directory structure
+            var directoryNode = new TreeViewItem() { Header = directoryInfo.Name};
+            foreach(var directory in directoryInfo.GetDirectories())
+            {
+                directoryNode.Items.Add(CreateDirectoryNode(directory));
+            }
+            foreach (var file in directoryInfo.GetFiles())
+            {
+                directoryNode.Items.Add(new TreeViewItem() { Header = file.Name });
+            }
+            return directoryNode;
+        }
+
     }
 }

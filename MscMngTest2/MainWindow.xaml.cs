@@ -70,6 +70,10 @@ namespace MscMngTest2
         private void buttonModifyIndex_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("lalal");
+            SubWindow1 cw = new SubWindow1();
+            cw.ShowInTaskbar = false;
+            cw.Owner = Application.Current.MainWindow;
+            cw.Show();
 
             return;
 

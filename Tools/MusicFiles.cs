@@ -36,6 +36,7 @@ namespace Tools
             {
                   Console.WriteLine(files[i]);
             }
+
             return files;
         }
 
