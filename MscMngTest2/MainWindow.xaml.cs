@@ -25,54 +25,62 @@ namespace MscMngTest2
             //Tools.MusicFiles files;
             InitializeComponent();
             Tree1.Items.Clear();
-
-            var items = Tree1.Items;
-
-            //TreeViewItem item1 = new TreeViewItem();
-            //item1.Header = "Computer";
-            TreeViewItem item1 = new TreeViewItem() { Header = "Folder1" };
-            TreeViewItem item2 = new TreeViewItem() { Header = "Folder2" };
-
-            //item1.ItemsSource = new string[] { "Monitor", "CPU", "Mouse" };
-            //item1.Items.GetItemAt(1);
-            
-            // ... Create a second TreeViewItem.
-            TreeViewItem subItem = new TreeViewItem();
-
-            List<TreeViewItem> itemList = new List<TreeViewItem>();
-            int listLength = 10;
-            
-            for (int i = 0; i < listLength; i++)
-            {
-                TreeViewItem item = new TreeViewItem() { Header = "subItem" + i};
-                itemList.Add(item);
-            }
-
-            subItem.Header = "subitem";
-
-            items.Add(item1);
-            items.Add(item2);
-
-            foreach (TreeViewItem n in items)
-            {
-                if (n.Header == "Folder2")
-                {
-                    for (int i = 0; i < listLength; i++)
-                    {
-                        (n as TreeViewItem).Items.Add(itemList[i]);
-                    }
-                }
-                    
-            }
-
-            
-            
+            testTree1();
+            testTree2();
         }
 
-
-        private void addNodes(TreeView SingleTree)
+        public void testTree1()
         {
-            SingleTree.Items.Add("aaa");
+            var nodes = Tree1.Items;
+
+            TreeViewItem node1 = new TreeViewItem() { Header = "Folder1" };
+            TreeViewItem node2 = new TreeViewItem() { Header = "Folder2" };
+            TreeViewItem subNode = new TreeViewItem() { Header = "subNode" };
+
+            nodes.Add(node1);
+            nodes.Add(node2);
+            node2.Items.Add(subNode);
+
+            List<TreeViewItem> nodeList = new List<TreeViewItem>();
+            int listLength = 10;
+            for (int i = 0; i < listLength; i++)
+            {
+                TreeViewItem nd = new TreeViewItem() { Header = "subNode" + i };
+                nodeList.Add(nd);
+            }
+            for (int i = 0; i < listLength; i++)
+            {
+                node1.Items.Add(nodeList[i]);
+            }
+
+            return;
+        }
+
+        public void testTree2()
+        {
+
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void buttonModifyIndex_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("lalal");
+
+            return;
+
+        }
+
+        private void buttonOpenMusic_Click(object sender, RoutedEventArgs e)
+        {
+            //Open Music
+            MessageBox.Show("music~");
+
+            return;
         }
     }
 }

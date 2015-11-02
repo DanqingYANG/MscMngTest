@@ -51,19 +51,23 @@ namespace Tools
             return fileTypes;
         }
 
-        public List<string> getFiles(string targetDirectory, List<string> filetypes)
+        public List<string> getFileNames(string targetDirectory, List<string> filetypes)
         {
             List<string> filenames = new List<string>();
             DirectoryInfo di = new DirectoryInfo(targetDirectory);
-            
-            foreach (var fi in di.GetFiles("??? Variation ?.mp3"))
+            for (int i = 0; i < filetypes.Count; i++)
             {
-                Console.WriteLine(fi.Name);
-                Console.WriteLine(fi.DirectoryName);
-                filenames.Add(fi.DirectoryName);
-            }
+                string key ="*." +filetypes[i];
+                foreach (var fi in di.GetFiles(key))
+                {
+                    Console.WriteLine(fi.DirectoryName);
+                    filenames.Add(fi.Name);
+                }
+            }          
             return filenames;
         }
+
+
 
         public List<string> subFolders(string targetDirectory)
         {
