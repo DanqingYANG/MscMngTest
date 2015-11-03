@@ -3,12 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MusicManager" Height="500" Width="800">
     <Grid>
-        <TreeView x:Name="Tree1" HorizontalAlignment="Left" Height="359" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="297,432,0,0" TextWrapping="Wrap" Text="ape, cue, mp3" VerticalAlignment="Top" Width="487" TextChanged="TextBox_TextChanged"/>
-        <Label Content="Filetypes : " HorizontalAlignment="Left" Height="33" Margin="295,408,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Current IndexPath:" HorizontalAlignment="Left" Height="51" Margin="10,408,0,0" VerticalAlignment="Top" Width="280"/>
-        <Button x:Name="buttonModifyIndex" Content="Folder Index" HorizontalAlignment="Left" Height="27" Margin="10,376,0,0" VerticalAlignment="Top" Width="280" Click="buttonModifyIndex_Click"/>
-        <Button x:Name="buttonOpenMusic" Content="AirPlay" HorizontalAlignment="Left" Height="27" Margin="297,376,0,0" VerticalAlignment="Top" Width="485" Click="buttonOpenMusic_Click"/>
-        <DataGrid HorizontalAlignment="Left" Margin="297,10,0,0" VerticalAlignment="Top" Height="359" Width="487"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="295"></ColumnDefinition>
+            <ColumnDefinition Width="480"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <TreeView Grid.Column="0" Grid.Row="0" x:Name="Tree1" Height="359" Margin="10,10,0,0" VerticalAlignment="Top" Width="280" HorizontalAlignment="Left"/>
+        <Label Grid.Column="0" Grid.Row="1" Content="Current IndexPath:" Height="51" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="280" HorizontalAlignment="Left"/>
+        <Button Grid.Column="0" Grid.Row="1" x:Name="buttonModifyIndex" Content="Folder Index" Height="27" Margin="10,0,0,64" VerticalAlignment="Bottom" Width="280" Click="buttonModifyIndex_Click" HorizontalAlignment="Left"/>
+        <DataGrid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Margin="5,10,-16,0" VerticalAlignment="Top" Height="359" Width="487"/>
+        <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Height="22" Margin="5,0,-25,14" TextWrapping="Wrap" Text="ape, cue, mp3" VerticalAlignment="Bottom" Width="487" TextChanged="TextBox_TextChanged"/>
+        <Label Grid.Column="1" Grid.Row="1" Content="Filetypes : " HorizontalAlignment="Left" Height="33" Margin="5,0,0,29" VerticalAlignment="Bottom" Width="200" />
+        <Button Grid.Column="1"  Grid.Row="1" x:Name="buttonOpenMusic" Content="AirPlay" HorizontalAlignment="Left" Height="27" Margin="5,0,-14,64" VerticalAlignment="Bottom" Width="485" Click="buttonOpenMusic_Click" />
+
     </Grid>
 </Window>

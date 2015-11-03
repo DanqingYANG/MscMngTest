@@ -69,14 +69,10 @@ namespace MscMngTest2
 
         private void buttonModifyIndex_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("lalal");
-            SubWindow1 cw = new SubWindow1();
-            cw.ShowInTaskbar = false;
-            cw.Owner = Application.Current.MainWindow;
-            cw.Show();
-
-            return;
-
+            SubWindow1 childWindow = new SubWindow1();
+            childWindow.ShowInTaskbar = false;
+            childWindow.Owner = Application.Current.MainWindow;
+            childWindow.Show();
         }
 
         private void buttonOpenMusic_Click(object sender, RoutedEventArgs e)
@@ -86,5 +82,7 @@ namespace MscMngTest2
 
             return;
         }
+
+
     }
 }

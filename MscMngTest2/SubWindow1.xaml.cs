@@ -29,7 +29,7 @@ namespace MscMngTest2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void ListDirectory(TreeView treeView, string path)
@@ -41,18 +41,20 @@ namespace MscMngTest2
 
         private  TreeViewItem CreateDirectoryNode(DirectoryInfo directoryInfo)
         {
+            
             //TreeView with file system directory structure
-            var directoryNode = new TreeViewItem() { Header = directoryInfo.Name};
+            var directoryNode = new TreeViewItem() { Header = new CheckBox() { Content = directoryInfo.Name } };
             foreach(var directory in directoryInfo.GetDirectories())
             {
                 directoryNode.Items.Add(CreateDirectoryNode(directory));
             }
-            foreach (var file in directoryInfo.GetFiles())
-            {
-                directoryNode.Items.Add(new TreeViewItem() { Header = file.Name });
-            }
+            //foreach (var file in directoryInfo.GetFiles())
+            //{
+            //    directoryNode.Items.Add(new TreeViewItem() { Header = file.Name });
+            //}
             return directoryNode;
         }
+
 
     }
 }
